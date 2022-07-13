@@ -68,11 +68,21 @@ hier: Aufsummierung
 // }
 // output("nach der loop: " + a);
 
+/*
+1a. Einer Variablen kann Ihr eigener Wert zugewiesen werden
+Solange die Variable existiert, bleibt dieser erhalten
+hier: Verkettung eines Strings // Transponierung
+*/
 
-
-
-
-
+// let str = "";
+// let gap = " ";
+// let addStr = "Test";
+// for (let i = 0; i <= 5; i++) {
+//     output("in der loop: " + str);
+//     // a = a + 1;  // Numerik
+//     str = str + addStr + gap // Text
+// }
+// output("nach der loop: " + str);
 
 
 /*** 01. Funktionalität mit Einzelparametern */
@@ -80,7 +90,7 @@ hier: Aufsummierung
 // output(getSentence("Ich","bin","Max","Mütze"));
 // output(getSentence("Ich","bin","Maxine","Mützerich"));
 // output(getSentence("Ich","bin","der", "coole","Max","Mütze"));
-// more of the same!
+// more of the same! // DRY!
 function getSentence(word1,word2,word3,word4,word5,word6) {
 
     const gap   = " ";
@@ -118,22 +128,32 @@ function getSentenceArr(arr) {
 /*** 01b. Funktionalität mit Array 2  */
 // Transponierung:  untereinander ---> nebeneinander
 // Helge Schneider: Anananandereihung ...
-
-// output(getSentenceArr2(["Ich","bin","Maxine","Mützerich"]));
-
+output(getSentenceArr2(["Ich","bin","Maxine","Mützerich"]));
+output(getSentenceArr2(["Ich","bin","die","coole","Maxine","Mützerich"]));
+output(getSentenceArr2(["Ich","bin","Max"]));
+output(getSentenceArr2([]));
 function getSentenceArr2(arr) {
 
     const gap   = " ";
     const punct = ".";
+    let str = "";
 
     for (let i = 0; i < arr.length; i++) {
-     output(arr[i]);  // i als Index des Arrays
+
+        // wenn ich noch NICHT das letzte Element habe --> gap
+        // wenn ich das letzte Element habe -->  punct
+        // a = a + 1 || a += 1  
+
+        if ( i != arr.length-1 ) {
+            str += arr[i] + gap;
+        } else {
+            str += arr[i] + punct; 
+        }
     }
 
+    return str;
 
 }
-
-
 
 // Modul: Ausgabe in Konsole : Test
 // output("hi"); 
